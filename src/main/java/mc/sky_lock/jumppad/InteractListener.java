@@ -10,25 +10,24 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by sky_lock on 2016/03/07.
+ * @author sky_lock
  */
-public class PlayerInteractListener implements Listener {
+class InteractListener implements Listener {
 
     private final JumpPad main;
 
-    public PlayerInteractListener(JumpPad main) {
+    InteractListener(JumpPad main) {
         this.main = main;
     }
 
+    @SuppressWarnings("unused")
     @EventHandler
     public void onPlayerInteractEvent(PlayerInteractEvent e) {
         if(!(e.getAction().equals(Action.PHYSICAL))) {
-            return;
-        }
-        if(!(e.getPlayer() instanceof Player)) {
             return;
         }
         Player player = e.getPlayer();
@@ -52,9 +51,7 @@ public class PlayerInteractListener implements Listener {
         Sign sign = (Sign)underBlock.getState();
         List<String> signStrs = new ArrayList<>();
 
-        for(String str: sign.getLines()) {
-            signStrs.add(str);
-        }
+        Arrays.asList(sign.getLines()).forEach(strs -> signStrs.add(strs));
 
         new JumpTask(player, signStrs).runTaskLater(main, 1);
     }
