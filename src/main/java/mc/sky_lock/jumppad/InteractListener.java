@@ -32,7 +32,7 @@ class InteractListener implements Listener {
         }
         Player player = e.getPlayer();
 
-        if(!(player.hasPermission("jumppad.fly"))) {
+        if(!(player.hasPermission("jumppad.allow.fly"))) {
             return;
         }
         Block block = e.getClickedBlock();
