@@ -1,10 +1,10 @@
 name: JumpPad
 version: 1.0
-author: sky_lock
-
 main: mc.sky_lock.jumppad.JumpPad
 
+author: sky_lock
+
 permissions:
-  jumppad.fly:
-    description: Allows player flying.
+  jumppad.allow.fly:
+    description: Allow player to fly.
     default: true

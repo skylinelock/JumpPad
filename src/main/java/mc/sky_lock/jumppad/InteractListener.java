@@ -51,7 +51,7 @@ class InteractListener implements Listener {
         Sign sign = (Sign)underBlock.getState();
         List<String> signStrs = new ArrayList<>();
 
-        Arrays.asList(sign.getLines()).forEach(strs -> signStrs.add(strs));
+        Arrays.asList(sign.getLines()).forEach(signStrs::add);
 
         new JumpTask(player, signStrs).runTaskLater(main, 1);
     }
