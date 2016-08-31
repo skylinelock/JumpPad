@@ -38,7 +38,6 @@ class JumpTask extends BukkitRunnable {
         player.playSound(loc, Sound.ENTITY_BLAZE_SHOOT, 1, 1F);
     }
 
-    @SuppressWarnings("")
     private boolean isDouble(String str) {
         try {
             Double.valueOf(str);
