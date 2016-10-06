@@ -1,8 +1,8 @@
-name: JumpPad
-version: 1.0
-main: mc.sky_lock.jumppad.JumpPad
+name: ${project.name}
+version: ${project.version}
+main: ${bukkit.plugin.main}
 
-author: sky_lock
+author: ${bukkit.plugin.authors}
 
 permissions:
   jumppad.allow.fly:
