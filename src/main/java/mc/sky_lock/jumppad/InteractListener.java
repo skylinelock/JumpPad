@@ -18,42 +18,41 @@ import java.util.List;
  */
 class InteractListener implements Listener {
 
-    private final JumpPad main;
+    private final JumpPad pl;
 
-    InteractListener(JumpPad main) {
-        this.main = main;
+    InteractListener(JumpPad pl) {
+        this.pl = pl;
     }
 
-    @SuppressWarnings("unused")
     @EventHandler
-    public void onPlayerInteractEvent(PlayerInteractEvent e) {
-        if(!(e.getAction().equals(Action.PHYSICAL))) {
+    public void onPlayerInteractEvent(PlayerInteractEvent event) {
+        if (!(event.getAction().equals(Action.PHYSICAL))) {
             return;
         }
-        Player player = e.getPlayer();
+        Player player = event.getPlayer();
 
-        if(!(player.hasPermission("jumppad.allow.fly"))) {
+        if (!(player.hasPermission("jumppad.allow.fly"))) {
             return;
         }
-        Block block = e.getClickedBlock();
+        Block block = event.getClickedBlock();
 
-        if(!(block.getType().equals(Material.WOOD_PLATE)) &&
-                !(block.getType().equals(Material.STONE_PLATE)) &&
-                !(block.getType().equals(Material.GOLD_PLATE)) &&
-                !(block.getType().equals(Material.IRON_PLATE))) {
+        if (!(block.getType().equals(Material.WOOD_PLATE))
+                && !(block.getType().equals(Material.STONE_PLATE))
+                && !(block.getType().equals(Material.GOLD_PLATE))
+                && !(block.getType().equals(Material.IRON_PLATE))) {
             return;
         }
-        Block underBlock = player.getWorld().getBlockAt(block.getLocation().add(0,-2,0));
+        Block underBlock = player.getWorld().getBlockAt(block.getLocation().add(0, -2, 0));
 
-        if(!(underBlock.getType().equals(Material.SIGN_POST)) && !(underBlock.getType().equals(Material.WALL_SIGN))) {
+        if (!(underBlock.getType().equals(Material.SIGN_POST)) && !(underBlock.getType().equals(Material.WALL_SIGN))) {
             return;
         }
-        Sign sign = (Sign)underBlock.getState();
+        Sign sign = (Sign) underBlock.getState();
         List<String> signStrs = new ArrayList<>();
 
         Arrays.asList(sign.getLines()).forEach(signStrs::add);
 
-        new JumpTask(player, signStrs).runTaskLater(main, 1);
+        new JumpTask(player, signStrs).runTaskLater(pl, 1);
     }
 
 }

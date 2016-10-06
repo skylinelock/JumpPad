@@ -15,5 +15,6 @@ public class JumpPad extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        super.onDisable();
     }
 }
