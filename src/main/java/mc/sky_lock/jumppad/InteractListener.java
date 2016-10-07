@@ -26,7 +26,7 @@ class InteractListener implements Listener {
 
     @EventHandler
     public void onPlayerInteractEvent(PlayerInteractEvent event) {
-        if (!(event.getAction().equals(Action.PHYSICAL))) {
+        if (event.getAction() != Action.PHYSICAL) {
             return;
         }
         Player player = event.getPlayer();
@@ -36,15 +36,15 @@ class InteractListener implements Listener {
         }
         Block block = event.getClickedBlock();
 
-        if (!(block.getType().equals(Material.WOOD_PLATE))
-                && !(block.getType().equals(Material.STONE_PLATE))
-                && !(block.getType().equals(Material.GOLD_PLATE))
-                && !(block.getType().equals(Material.IRON_PLATE))) {
+        if (block.getType() != Material.WOOD_PLATE
+                && block.getType() != Material.STONE_PLATE
+                && block.getType() != Material.GOLD_PLATE
+                && block.getType() != Material.IRON_PLATE) {
             return;
         }
-        Block underBlock = player.getWorld().getBlockAt(block.getLocation().add(0, -2, 0));
+        Block underBlock = player.getWorld().getBlockAt(block.getLocation().subtract(0, 2, 0));
 
-        if (!(underBlock.getType().equals(Material.SIGN_POST)) && !(underBlock.getType().equals(Material.WALL_SIGN))) {
+        if (underBlock.getType() != Material.SIGN_POST && underBlock.getType() != Material.WALL_SIGN) {
             return;
         }
         Sign sign = (Sign) underBlock.getState();
