@@ -28,8 +28,8 @@ class JumpTask extends BukkitRunnable {
         if (!(strs.get(0).equalsIgnoreCase("[jumppad]"))) {
             return;
         }
-        Double scalar = isDouble(strs.get(1)) ? Double.valueOf(strs.get(1)) : 3.0F;
-        Double YAxis = isDouble(strs.get(2)) ? Double.valueOf(strs.get(2)) : 3.0F;
+        Double scalar = isDouble(strs.get(1)) ? Double.parseDouble(strs.get(1)) : 3.0F;
+        Double YAxis = isDouble(strs.get(2)) ? Double.parseDouble(strs.get(2)) : 3.0F;
         
         Location loc = player.getLocation();
 
@@ -39,7 +39,7 @@ class JumpTask extends BukkitRunnable {
 
     private boolean isDouble(String str) {
         try {
-            Double.valueOf(str);
+            Double.parseDouble(str);
         } catch (NumberFormatException ex) {
             return false;
         }
