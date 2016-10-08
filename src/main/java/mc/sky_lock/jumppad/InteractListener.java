@@ -52,7 +52,7 @@ class InteractListener implements Listener {
 
         Arrays.asList(sign.getLines()).forEach(signStrs::add);
 
-        new JumpTask(player, signStrs).runTaskLater(pl, 1);
+        new JumpTask(player, signStrs).runTaskLater(pl, 1L);
     }
 
 }

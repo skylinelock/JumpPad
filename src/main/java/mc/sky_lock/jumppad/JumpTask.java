@@ -28,13 +28,13 @@ class JumpTask extends BukkitRunnable {
         if (!(strs.get(0).equalsIgnoreCase("[jumppad]"))) {
             return;
         }
-        Double scalar = isDouble(strs.get(1)) ? Double.parseDouble(strs.get(1)) : 3.0F;
-        Double YAxis = isDouble(strs.get(2)) ? Double.parseDouble(strs.get(2)) : 3.0F;
+        double scalar = isDouble(strs.get(1)) ? Double.parseDouble(strs.get(1)) : 3.0;
+        double YAxis = isDouble(strs.get(2)) ? Double.parseDouble(strs.get(2)) : 3.0;
         
         Location loc = player.getLocation();
 
         player.setVelocity(loc.getDirection().multiply(scalar).setY(YAxis));
-        player.playSound(loc, Sound.ENTITY_BLAZE_SHOOT, 1, 1F);
+        player.playSound(loc, Sound.ENTITY_BLAZE_SHOOT, 1F, 1F);
     }
 
     private boolean isDouble(String str) {
