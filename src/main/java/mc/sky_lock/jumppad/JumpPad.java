@@ -13,8 +13,4 @@ public class JumpPad extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InteractListener(this), this);
     }
 
-    @Override
-    public void onDisable() {
-        super.onDisable();
-    }
 }
