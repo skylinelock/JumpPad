@@ -45,7 +45,7 @@ class InteractListener implements Listener {
                 && block.getType() != Material.IRON_PLATE) {
             return;
         }
-        Block underBlock = block.getLocation().subtract(0, 2, 0).clone().getBlock();
+        Block underBlock = block.getLocation().subtract(0.0D, 2.0D, 0.0).clone().getBlock();
 
         if (underBlock.getType() != Material.SIGN_POST && underBlock.getType() != Material.WALL_SIGN) {
             return;
