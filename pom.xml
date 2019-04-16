@@ -13,7 +13,7 @@
     <inceptionYear>2016</inceptionYear>
     
     <properties>
-        <bukkit.plugin.main>mc.sky_lock.jumppad.JumpPad</bukkit.plugin.main>
+        <bukkit.plugin.main>dev.sky_lock.jumppad.JumpPadPlugin</bukkit.plugin.main>
         <bukkit.plugin.authors>sky_lock</bukkit.plugin.authors>
     </properties>
 
@@ -25,7 +25,7 @@
     </developers>
 
     <build>
-        <finalName>${project.name}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.9.4-R0.1-SNAPSHOT</version>
+            <version>1.13.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
             <type>jar</type>
         </dependency>

@@ -3,8 +3,9 @@ version: ${project.version}
 main: ${bukkit.plugin.main}
 
 author: ${bukkit.plugin.authors}
+api-version: 1.13
 
 permissions:
   jumppad.allow.fly:
-    description: Allow player to fly.
+    description: Allow a player to fly.
     default: true
